@@ -1,8 +1,11 @@
 <?php
 
 echo('<html>
-<head><meta charset="utf-8"></head>
-<body style="background-color:palegoldenrod;">');
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="motol.css">
+</head>
+<body>');
 
 echo('
 <br>
@@ -13,7 +16,7 @@ echo('
 </p>
 
 <div align="center">
-<table width="60%" style="border-collapse:collapse;">
+<table id="top_table">
 	<tr style="background-color:lightblue">
 	<td align="right">Zadejte termín od:</td>
 	<td>Den
@@ -59,7 +62,7 @@ echo('
 
 <br>
 
-<table width="60%" style="border:1px solid lightgray;">
+<table id="bottom_table">
 	<tr style="background-color:midnightblue">
 	<td><font color="white">Datum</font></td>
 	<td><font color="white">LABORANT OBECNÁ (K)</font></td>
