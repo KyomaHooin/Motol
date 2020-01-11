@@ -35,14 +35,19 @@ echo('
 
 <tr style="background-color:lightblue;">
 	<td>1.8. - Pátek</td>
-	<td>Tomas Roman</td>
+	<td>Tomáš Roman</td>
 	<td>Pavel Okurka</td>
 </tr>
 
 <tr style="background-color:gold;">
 	<td>2.8. - Sobota</td>
-	<td><select>Jmeno</select></td>
-	<td>Filip Omacka</td>
+	<td><select>
+		<option></option>
+		<option>Radek Hrouda</option>
+		<option>Jana Novotná</option>
+		<option>Zdenka Veselá</option>
+	</select></td>
+	<td>Filip Omáčka</td>
 </tr>
 </table></div>
 
