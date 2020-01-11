@@ -10,8 +10,9 @@ PHP >= 5.6
 </pre>
 FILE
 <pre>
-   index.php - PHP5 site.
-template.sql - MySQL5 DB template.
+         index.php - PHP5 site.
+         motol.css - CSS template.
+motol_calendar.sql - MySQL5 DB dump.
 </pre>
 SOURCE
 
