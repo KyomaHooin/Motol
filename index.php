@@ -15,6 +15,7 @@ if ($con->connect_error) {
 }
 
 // FUNC
+
 function fetch_data($date_from, $date_until) {
 	$sql = 'SELECT * FROM calendar WERE datum >=' . $date_from . ' AND datum <= ' . $date_until . ';';
 	$ret = $con->query($sql);
@@ -23,8 +24,22 @@ function fetch_data($date_from, $date_until) {
 			echo('<tr><td>' . $row[0] . '</td><td>' . $row[1] . '</td><td>' . $row[2] . '</td></tr>');
 		}
 	} else {
-		echo('Žádná data.');
+		echo('<b>Žádná data.</b>');
 	}	
+}
+
+function write_default($year) {
+	for ($i = 0;$i < 12; $i++) {
+		for ($j = 1; $j <= cal_days_in_month(0, $i, $year); $j++) {
+			$sql = 'INSERT INTO calendar VALUES(' . $year . '-' . $i . '-' . $j. ') ON DUPLICATE KEYS UPDATE;';
+			$ret = $con->query($sql);
+		}
+	}
+}
+
+function write_row($date, $name1, $name2) {
+	$sql = 'INSERT INTO calendar VALUES(' . $date . ',' . $name1 . ',' . $name2 . ') ON DUPLICATE KEYS UPDATE;';
+	$ret = $con->query($sql);
 }
 
 //STATIC HEADER
