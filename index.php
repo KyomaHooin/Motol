@@ -21,7 +21,7 @@ function fetch_data($date_from, $date_until) {
 	$ret = $con->query($sql);
 	if ($ret) {
 		while($row = $ret->fetch_row()) {
-			echo('<tr><td>' . $row[0] . '</td><td>' . $row[1] . '</td><td>' . $row[2] . '</td></tr>');
+			echo('<tr><td>' . $row[0] . '</td><td id="lab-name">' . $row[1] . '</td><td id="lab-name">' . $row[2] . '</td></tr>');
 		}
 	} else {
 		echo('<b>Žádná data.</b>');
@@ -71,7 +71,7 @@ echo('
 	<td>Rok
 	<select id="from-year"></select>
 	</td>
-	<td><input type="checkbox">Úpravy</td>
+	<td><input type="checkbox" onclick="transpose_dropdown()">Úpravy</td>
 	<td></td>
 	</tr>
 	<tr style="background-color:lightblue">
@@ -86,7 +86,7 @@ echo('
 	<select id="until-year"></select>
 	</td>
 	<td><button>Zobraz</button></td>
-	<td><button>Tisk</button></td>
+	<td><button onClick="window.print()">Tisk</button></td>
 	</tr>
 </table><br>
 ');

@@ -1,4 +1,6 @@
 
+var laborant = ['Tomas Okurka', 'Petr Kletecka', 'Marte Vesela', 'Jindra Hojer', 'Lida Barova', 'Martin Marecek'];
+
 function daysInMonth(month, year) {
 	return new Date(year, month, 0).getDate();
 }
@@ -35,7 +37,6 @@ function populateDates(daydrop, monthdrop, yeardrop) {
 	}
 }
 
-//monthdropdown.onchange = function() {
 function update_day() {
 	var newMonth = months.indexOf(monthdropdown.value) + 1,
 	newYear = yeardropdown.value;
@@ -62,4 +63,18 @@ var monthuntildrop = document.getElementById('until-month');
 var yearuntildrop = document.getElementById('until-year');
 
 populateDates(dayuntildrop, monthuntildrop, yearuntildrop)
+
+function switch_text_to_dropdown(item) {
+	name =	document.getElementById(item).text;
+	document.getElementById(item).innerHTML='<select id="name-select">';
+	for (var i = 0; i < laborant.legth; i++) {
+		document.getElementById(item).innerHTML+='<option>'.concat(laborant[$i],'</option>');
+	}
+	document.getElementById(item).innerHTML='</select>';
+	document.getElementById('name-select').selectedIndex=laborant.indexOf(name);
+}
+
+function transpose_dropdown() {
+	('.name-td').each(switch_to_dropdown());
+}
 
