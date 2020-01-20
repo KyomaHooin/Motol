@@ -1,28 +1,31 @@
 <?php
-
-// SQL CONNECTION
+//
+// Simple PHP Calendar schedule
+//
 
 $servername = 'localhost';
 $username = 'motol';
 $password = 'm0t0l_p455';
 
-$conn = new mysqli($servername, $username, $password);
+$con = new mysqli($servername, $username, $password);
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+if ($con->connect_error) {
+	echo('Spojeni s databází selhalo.');
+	exit;
 }
 
-
-//TODO
-//
-// PHP: update_db()
-// PHP: fetch_from_to() max 40
-// PHP: print_on_click()
-// PHP: gen_calendar_selection()
-// JS: edit on check()
-// JS: write_db_on_select()
-// JS: 
-//
+// FUNC
+function fetch_data($date_from, $date_until) {
+	$sql = 'SELECT * FROM calendar WERE datum >=' . $date_from . ' AND datum <= ' . $date_until . ';';
+	$ret = $con->query($sql);
+	if ($ret) {
+		while($row = $ret->fetch_row()) {
+			echo('<tr><td>' . $row[0] . '</td><td>' . $row[1] . '</td><td>' . $row[2] . '</td></tr>');
+		}
+	} else {
+		echo('Žádná data.');
+	}	
+}
 
 //STATIC HEADER
 
@@ -31,7 +34,6 @@ echo('<!doctype html>
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="motol.css">
-<script src="motol.js"></script>
 </head>
 <body>
 <br>
@@ -49,7 +51,7 @@ echo('
 	<select id="from-day"></select>
 	</td>
 	<td>Mesic
-	<select id="from-month"></select>
+	<select id="from-month" onchange="update_day()"></select>
 	</td>
 	<td>Rok
 	<select id="from-year"></select>
@@ -107,6 +109,7 @@ echo('
 
 //STATIC FOOTER
 
+echo ('<script src="motol.js"></script>');
 echo ('</div></body></html>');
 
 ?>
