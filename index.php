@@ -4,8 +4,8 @@
 //
 
 $servername = 'localhost';
-$username = 'motol';
-$password = 'm0t0l_p455';
+$username = 'xxx';
+$password = 'xxx';
 
 $con = new mysqli($servername, $username, $password);
 
